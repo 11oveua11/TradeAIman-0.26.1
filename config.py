@@ -43,7 +43,7 @@ LOOKBACK_MINUTES = 10
 HORIZONS = [1, 2, 3, 4, 5]
 
 # --- Обучение MLP ---
-HIDDEN_LAYERS = [128, 64]          # размеры скрытых слоёв
+HIDDEN_LAYERS = [64, 32]          # размеры скрытых слоёв
 DROPOUT = 0.2
 EPOCHS = 100
 BATCH_SIZE = 64
@@ -59,3 +59,11 @@ AUTO_PARAM_GRID = {
     "HIDDEN_LAYERS": [[64, 32], [128, 64], [256, 128]],
     "LEARNING_RATE": [1e-3, 5e-4, 1e-4],
 }
+
+# --- Early stopping ---
+# Сколько эпох ждать улучшения val_loss, прежде чем остановить обучение.
+EARLY_STOP_PATIENCE = 15
+# Минимальное улучшение, которое считается «прогрессом» (иначе — шум).
+EARLY_STOP_MIN_DELTA = 1e-5
+# L2-регуляризация: штраф за большие веса. Помогает от переобучения.
+WEIGHT_DECAY = 1e-4

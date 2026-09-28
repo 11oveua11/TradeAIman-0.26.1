@@ -69,7 +69,7 @@ def run_auto(app):
                 old["LOOKBACK_MINUTES"] = config.LOOKBACK_MINUTES
                 config.LOOKBACK_MINUTES = lookback
 
-            X, Y = dataset_builder.build_dataset(df_feat)
+            X, Y, _ = dataset_builder.build_dataset(df_feat)
 
             # Восстанавливаем
             for k, v in old.items():
